@@ -368,7 +368,7 @@ async function sendAsk(question) {
       body: JSON.stringify({
         model:"claude-sonnet-4-6",
         max_tokens:1000,
-        system:`You are a Utah driver's license exam tutor. Answer ONLY from the handbook excerpt below. Be clear and concise. If the topic isn't covered, say so and suggest checking dld.utah.gov. Highlight key numbers and rules.\n\nUTAH DRIVER HANDBOOK:\n${state.handbookText.substring(0, 90000)}`,
+        system:`You are a Utah driver's license exam tutor. Answer ONLY from the handbook excerpt below. Be clear and concise. If the topic isn't covered, say so and suggest checking dld.utah.gov. Highlight key numbers and rules.\n\nUTAH DRIVER HANDBOOK:\n${state.handbookText.substring(0, 300000)}`,
         messages:[{role:"user", content:question.trim()}]
       })
     });
@@ -877,3 +877,4 @@ render();
 </script>
 </body>
 </html>
+
