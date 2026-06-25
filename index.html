@@ -339,7 +339,7 @@ async function explainQuestion() {
   setState({explaining:true});
   const q = state.questions[state.cur];
   try {
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
+    const res = await fetch("https://anthropic-proxy.arbopress.workers.dev", {
       method:"POST",
       headers: apiHeaders(),
       body: JSON.stringify({
@@ -362,7 +362,7 @@ async function sendAsk(question) {
   const msgs = [...state.askMsgs, {r:"u", t:question.trim()}];
   setState({askMsgs:msgs, askInput:"", askBusy:true});
   try {
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
+    const res = await fetch("https://anthropic-proxy.arbopress.workers.dev", {
       method:"POST",
       headers: apiHeaders(),
       body: JSON.stringify({
@@ -877,3 +877,4 @@ render();
 </script>
 </body>
 </html>
+
